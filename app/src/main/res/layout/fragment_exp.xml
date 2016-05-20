@@ -8,28 +8,14 @@
         android:layout_height="match_parent"
         android:paddingLeft="64dp">
 
-        <LinearLayout
+        <include
+            layout="@layout/loading_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent" />
 
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:progressDrawable="@drawable/loading_progress" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="loading" />
-        </LinearLayout>
-
-        <GridView
-            android:id="@+id/tv"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mCompanyRecycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:layout_height="match_parent" />
     </RelativeLayout>
 </RelativeLayout>

@@ -5,6 +5,7 @@ import com.zyf.juheinquire.mvp.model.ExpStageInfo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * Created by zyf on 16/5/20.
@@ -12,7 +13,7 @@ import retrofit2.http.GET;
 public interface JuHeApiService {
 
     @GET("exp/com")
-    Call<ExpCompanyInfo> getCompanyInfo();
+    Call<ExpCompanyInfo> getCompanyInfo(@Query("key") String key);
 
 
     @GET("exp/index")

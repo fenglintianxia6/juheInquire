@@ -9,10 +9,10 @@ import com.zyf.juheinquire.mvp.view.BaseView;
 public interface QueryExpCompany {
 
 
-    interface View extends BaseView<QueryExpCompany.Presenter> {
+    interface View<T> extends BaseView<QueryExpCompany.Presenter> {
         void onStartLoding();
 
-        void onLodingFinish();
+        void onLodingFinish(T t);
 
         void onLogingFailed();
     }

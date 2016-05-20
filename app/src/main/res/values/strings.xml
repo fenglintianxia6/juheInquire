@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">JuHeInquire</string>
     <string name="dev_id">JHe8c3b854ed96827e34e5a5e1f436967d</string>
+    <string name="exp_query">快递查询</string>
 </resources>

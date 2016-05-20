@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="118dp"
+    android:background="#ec6738">
+
+    <TextView
+        android:id="@+id/baitiao_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="14dp"
+        android:text="@string/exp_query"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/default_focused_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal" />
+
+    <EditText
+        android:id="@+id/et_num"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/bg_baitiao_edit"
+        android:focusable="false"
+        android:gravity="center"
+        android:maxLength="5"
+        android:textColorHint="#d7d7d7"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

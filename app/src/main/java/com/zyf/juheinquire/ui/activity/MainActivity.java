@@ -46,14 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setData() {
         fragmentList = new ArrayList<>();
-        fragmentList.add(new ExpFragment());
-        fragmentList.add(new ExpFragment());
-        fragmentList.add(new ExpFragment());
-        fragmentList.add(new ExpFragment());
         mDrawerMenu.setDrawerShadow(null, Gravity.LEFT);
         mMenuList.setAdapter(new MainMenuAdapter(this));
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout, fragmentList.get(0)).commit();
+        ft.replace(R.id.frameLayout, new ExpFragment()).commit();
     }
 
 

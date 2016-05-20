@@ -63,7 +63,7 @@ public class MainMenuAdapter extends BaseAdapter implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (context != null && context instanceof MainActivity) {
-            ((MainActivity) context).transFragment((Integer) v.getTag());
+//            ((MainActivity) context).transFragment((Integer) v.getTag());
         }
     }
 }

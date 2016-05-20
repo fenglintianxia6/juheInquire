@@ -3,9 +3,11 @@ package com.zyf.juheinquire.mvp.presenter;
 import android.content.Context;
 
 import com.zyf.juheinquire.api.JuHeApiService;
+import com.zyf.juheinquire.application.Constant;
 import com.zyf.juheinquire.application.JuHeApplication;
 import com.zyf.juheinquire.mvp.QueryExpCompany;
 import com.zyf.juheinquire.mvp.model.ExpCompanyInfo;
+import com.zyf.juheinquire.util.ListUtils;
 
 import javax.inject.Inject;
 
@@ -32,12 +34,12 @@ public class QueryCompanyPrensenter implements QueryExpCompany.Presenter {
     @Override
     public void getCompanyList(final QueryExpCompany.View view) {
         view.onStartLoding();
-        Call<ExpCompanyInfo> call = mService.getCompanyInfo();
+        Call<ExpCompanyInfo> call = mService.getCompanyInfo(Constant.EXP_KEY);
         call.enqueue(new Callback<ExpCompanyInfo>() {
             @Override
             public void onResponse(Call<ExpCompanyInfo> call, Response<ExpCompanyInfo> response) {
-                if (response.body() != null) {
-                    view.onLodingFinish();
+                if (response.body() != null && !ListUtils.isEmpty(response.body().getResult())) {
+                    view.onLodingFinish(response.body());
                 } else {
                     view.onLogingFailed();
                 }
