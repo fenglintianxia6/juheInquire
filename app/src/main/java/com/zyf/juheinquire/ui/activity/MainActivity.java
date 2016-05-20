@@ -12,6 +12,11 @@ import android.widget.ListView;
 
 import com.zyf.juheinquire.R;
 import com.zyf.juheinquire.ui.adapter.MainMenuAdapter;
+import com.zyf.juheinquire.ui.fragments.BaseFragment;
+import com.zyf.juheinquire.ui.fragments.ExpFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout frameLayout;
 
 
+    private List<BaseFragment> fragmentList;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +45,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setData() {
+        fragmentList = new ArrayList<>();
+        fragmentList.add(new ExpFragment());
+        fragmentList.add(new ExpFragment());
+        fragmentList.add(new ExpFragment());
+        fragmentList.add(new ExpFragment());
         mDrawerMenu.setDrawerShadow(null, Gravity.LEFT);
         mMenuList.setAdapter(new MainMenuAdapter(this));
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout, fragmentList.get(0)).commit();
     }
 
 
     public void transFragment(int position) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(R.anim.fragment_fade_in, R.anim.fragment_fade_out);
+        for (int i = 0; i < fragmentList.size(); i++) {
+            if (position == i) {
+                ft.show(fragmentList.get(i));
+            } else {
+                ft.hide(fragmentList.get(i));
+            }
+        }
         ft.commit();
     }
+
 
     public void toggle(View view) {
         if (mDrawerMenu.isDrawerOpen(Gravity.LEFT)) {
@@ -55,5 +78,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             mDrawerMenu.openDrawer(Gravity.LEFT);
         }
+
     }
 }

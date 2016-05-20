@@ -28,4 +28,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile files('juhe_sdk_v_2_7.jar')
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.google.dagger:dagger:2.4'
+    compile 'com.google.dagger:dagger-compiler:2.4'
 }

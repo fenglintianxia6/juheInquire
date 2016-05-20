@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.zyf.juheinquire.R;
+import com.zyf.juheinquire.ui.activity.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,5 +62,8 @@ public class MainMenuAdapter extends BaseAdapter implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
+        if (context != null && context instanceof MainActivity) {
+            ((MainActivity) context).transFragment((Integer) v.getTag());
+        }
     }
 }
