@@ -8,7 +8,7 @@
         android:id="@+id/tv_company"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_keyboard"
+        android:background="@drawable/bg_company_item"
         android:gravity="center"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"

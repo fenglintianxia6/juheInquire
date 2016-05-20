@@ -1,6 +1,7 @@
 package com.zyf.juheinquire.di;
 
 import com.zyf.juheinquire.mvp.presenter.QueryCompanyPrensenter;
+import com.zyf.juheinquire.mvp.presenter.QueryExpStatePresenter;
 
 import javax.inject.Singleton;
 
@@ -14,5 +15,7 @@ import dagger.Component;
 public interface ApplicationComponent {
 
     void inject(QueryCompanyPrensenter queryCompanyPrensenter);
+
+    void inject(QueryExpStatePresenter queryExpStatePresenter);
 
 }

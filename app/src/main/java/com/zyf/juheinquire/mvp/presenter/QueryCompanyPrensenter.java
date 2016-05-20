@@ -5,7 +5,7 @@ import android.content.Context;
 import com.zyf.juheinquire.api.JuHeApiService;
 import com.zyf.juheinquire.application.Constant;
 import com.zyf.juheinquire.application.JuHeApplication;
-import com.zyf.juheinquire.mvp.QueryExpCompany;
+import com.zyf.juheinquire.mvp.QueryData;
 import com.zyf.juheinquire.mvp.model.ExpCompanyInfo;
 import com.zyf.juheinquire.util.ListUtils;
 
@@ -18,7 +18,7 @@ import retrofit2.Response;
 /**
  * Created by zyf on 16/5/20.
  */
-public class QueryCompanyPrensenter implements QueryExpCompany.Presenter {
+public class QueryCompanyPrensenter implements QueryData.Presenter {
 
     private Context context;
 
@@ -32,7 +32,7 @@ public class QueryCompanyPrensenter implements QueryExpCompany.Presenter {
 
 
     @Override
-    public void getCompanyList(final QueryExpCompany.View view) {
+    public void getData(final QueryData.View view) {
         view.onStartLoding();
         Call<ExpCompanyInfo> call = mService.getCompanyInfo(Constant.EXP_KEY);
         call.enqueue(new Callback<ExpCompanyInfo>() {
@@ -50,5 +50,11 @@ public class QueryCompanyPrensenter implements QueryExpCompany.Presenter {
                 view.onLogingFailed();
             }
         });
+    }
+
+
+    @Override
+    public void setData(Object o) {
+
     }
 }

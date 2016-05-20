@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.zyf.juheinquire.R;
-import com.zyf.juheinquire.mvp.QueryExpCompany;
+import com.zyf.juheinquire.mvp.QueryData;
 import com.zyf.juheinquire.mvp.model.ExpCompanyInfo;
 import com.zyf.juheinquire.mvp.presenter.QueryCompanyPrensenter;
 import com.zyf.juheinquire.ui.adapter.MainRecyclerAdapter;
@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Created by zyf on 16/5/19.
  */
-public class ExpFragment extends BaseFragment implements QueryExpCompany.View<ExpCompanyInfo> {
+public class ExpFragment extends BaseFragment implements QueryData.View<ExpCompanyInfo> {
 
 
     @BindView(R.id.ll_loading)
@@ -29,7 +29,7 @@ public class ExpFragment extends BaseFragment implements QueryExpCompany.View<Ex
     @BindView(R.id.mCompanyRecycler)
     RecyclerView mCompanyRecycler;
 
-    private QueryExpCompany.Presenter presenter;
+    private QueryData.Presenter presenter;
 
     @Nullable
     @Override
@@ -37,7 +37,7 @@ public class ExpFragment extends BaseFragment implements QueryExpCompany.View<Ex
         View view = inflater.inflate(getLayout(), null);
         ButterKnife.bind(this, view);
         setPresenter(new QueryCompanyPrensenter(getActivity()));
-        presenter.getCompanyList(this);
+        presenter.getData(this);
         return view;
 
     }
@@ -66,7 +66,7 @@ public class ExpFragment extends BaseFragment implements QueryExpCompany.View<Ex
 
 
     @Override
-    public void setPresenter(QueryExpCompany.Presenter presenter) {
+    public void setPresenter(QueryData.Presenter presenter) {
         this.presenter = presenter;
     }
 }
