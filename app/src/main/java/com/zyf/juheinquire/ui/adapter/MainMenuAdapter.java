@@ -11,10 +11,11 @@ import com.zyf.juheinquire.R;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by zyf on 16/5/19.
  */
-public class MainMenuAdapter extends BaseAdapter {
+public class MainMenuAdapter extends BaseAdapter implements View.OnClickListener {
 
     private List<String> functions;
 
@@ -49,11 +50,16 @@ public class MainMenuAdapter extends BaseAdapter {
         }
         ((TextView) convertView.findViewById(R.id.tv_menu)).setText(functions.get(position));
         convertView.setTag(position);
+        convertView.setOnClickListener(this);
         return convertView;
     }
 
     public void addFunction(String function) {
         functions.add(function);
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View v) {
     }
 }
