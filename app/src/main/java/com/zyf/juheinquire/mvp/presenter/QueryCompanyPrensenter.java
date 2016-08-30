@@ -4,12 +4,10 @@ import android.content.Context;
 
 import com.zyf.juheinquire.api.JuHeApiService;
 import com.zyf.juheinquire.application.Constant;
-import com.zyf.juheinquire.application.JuHeApplication;
 import com.zyf.juheinquire.mvp.QueryData;
 import com.zyf.juheinquire.mvp.model.ExpCompanyInfo;
 import com.zyf.juheinquire.util.ListUtils;
-
-import javax.inject.Inject;
+import com.zyf.juheinquire.util.NetWorkUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,12 +20,11 @@ public class QueryCompanyPrensenter implements QueryData.Presenter {
 
     private Context context;
 
-    @Inject
-    JuHeApiService mService;
+    private JuHeApiService mService;
 
     public QueryCompanyPrensenter(Context context) {
         this.context = context;
-        JuHeApplication.from(context).getComponent().inject(this);
+        mService = NetWorkUtils.getApiService();
     }
 
 

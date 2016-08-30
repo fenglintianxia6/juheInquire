@@ -4,15 +4,13 @@ import android.content.Context;
 
 import com.zyf.juheinquire.api.JuHeApiService;
 import com.zyf.juheinquire.application.Constant;
-import com.zyf.juheinquire.application.JuHeApplication;
 import com.zyf.juheinquire.mvp.QueryData;
 import com.zyf.juheinquire.mvp.model.ExpStageInfo;
 import com.zyf.juheinquire.util.ListUtils;
+import com.zyf.juheinquire.util.NetWorkUtils;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,9 +22,8 @@ import retrofit2.Response;
 public class QueryExpStatePresenter implements QueryData.Presenter {
 
     private Context context;
-    @Inject
-    JuHeApiService mJuHeService;
 
+    private JuHeApiService mJuHeService;
 
     private String com;
 
@@ -35,7 +32,7 @@ public class QueryExpStatePresenter implements QueryData.Presenter {
     public QueryExpStatePresenter(Context context, String no) {
         this.context = context;
         this.no = no;
-        JuHeApplication.from(context).getComponent().inject(this);
+        mJuHeService = NetWorkUtils.getApiService();
     }
 
     @Override
