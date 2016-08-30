@@ -2,7 +2,6 @@ package com.zyf.juheinquire.ui.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 
 import com.zyf.juheinquire.R;
@@ -22,13 +21,12 @@ public class ExpQueryActivity extends Activity implements QueryData.View<List> {
     private QueryData.Presenter<String> presenter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query_exp);
         ButterKnife.bind(this);
         setPresenter(new QueryExpStatePresenter(this, getIntent().getStringExtra("no")));
     }
-
 
     public void getExpInfo(View view) {
         presenter.getData(this);
@@ -36,7 +34,7 @@ public class ExpQueryActivity extends Activity implements QueryData.View<List> {
 
     @Override
     public void onStartLoding() {
-        
+
     }
 
     @Override
